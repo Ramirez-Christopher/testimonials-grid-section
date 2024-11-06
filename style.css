@@ -1,4 +1,3 @@
-
 /* Box sizing rules */
 *,
 *::before,
@@ -30,6 +29,7 @@ ol[role='list'] {
 body {
   min-height: 100vh;
   line-height: 1.5;
+  background-color: #F2F2F2;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -75,60 +75,163 @@ textarea:not([rows]) {
 }
 
 .container {
-    width: 85%;
-    margin: 20px auto;
-    display: grid;
-    gap: 20px;
-
+  width: 75%;
+  margin: 100px auto ;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }
 
 .grid-item{
-    width: 85%;
-    margin: 0 auto;
-    border: 2px solid black;
     padding: 2.5em;
+    border-radius: 20px;
+    display: grid;
+    grid-template-areas: 
+      "name name "
+      "desc desc desc"
+      "quote quote quote";
+    gap: 10px ;
+    color: #FFF;
 }
 
 .person-info{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-areas: 
+      "profile-pic name"
+      "profile-pic title";
+      justify-content: start;
+      align-content: center;
+  }
+
+.person-info img{   
+    grid-area: profile-pic;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    align-self: flex-start;
+}
+
+.person-info h2{
+    grid-area: name;
+    font-size: 13px;
+    align-self: flex-end;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 13px;
+    color: #FFFF;
+    grid-area: name;
+}
+
+.person-info p{
+    grid-area: title;
+    align-self: flex-start;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 11px;
+    color: #CFCFCF;
 }
 
 .person-info img{   
-    width: 28px;
-    min-height: 28px;
+    grid-area: profile-pic;
     border-radius: 50%;
     object-fit: cover;
 
 
 }
-.person-info h2{
-    font-size: 13;
-}
+
 .card-1 {
     position: relative;
     background-color: #733FC8;
   }
 
-  .quote-image {
-    position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    width: 50px; /* Adjust as needed */
-    height: 50px; /* Adjust as needed */
+  .card-1 img{
+    border: 4px solid #A775F1;
   }
-  
+
 .card-2{
-    background-color: #48556A;
+  background-color: #48556A;
 }
+
 .card-3{
     background-color: #FFFF;
+    color: #CFCFCF;
+}
+.card-3 h2{
+  color: black;
+}
+.card-3 .description {
+  color: black;
 }
 .card-4{
     background-color: #19202D;
 }
+
+.card-4 img{
+  border: 4px solid #A775F1;
+}
 .card-5{
     background-color: #FFFF;
+    color: #CFCFCF;
 }
+.card-5 h2{
+  color: black;
+}
+
+.card-5 .description {
+  color: black;
+}
+
+
+
+  .quote-image {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    width: 50px; 
+    height: 50px;
+  }
+  
+
+
+.description{
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.quote{
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  color: #CFCFCF;
+}
+
+@media (min-width: 900px) {
+  .container{
+    grid-template-areas:
+      "Daniel Daniel Jonathon Kira"
+      "Jeanette Patrick Patrick Kira" ;
+  }
+
+  .card-1{
+    grid-area: Daniel;
+  }
+  .card-2{
+    grid-area: Jonathon;
+  }
+
+  .card-3{
+    grid-area: Jeanette;
+  }
+  .card-4{
+    grid-area: Patrick;
+  }
+  .card-5{
+    grid-area: Kira;
+  }
+}
+
