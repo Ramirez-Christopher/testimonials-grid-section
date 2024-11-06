@@ -146,7 +146,7 @@ textarea:not([rows]) {
     background-color: #733FC8;
   }
 
-  .card-1 img{
+  .card-1 .person-info img{
     border: 4px solid #A775F1;
   }
 
